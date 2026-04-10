@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "headline": "The Fight Over OnlyFans: Inside the Adult Content Industry's Most Controversial Platform",
+    "publication": "The New York Times",
+    "date": "2021-08-25",
+    "summary": "Investigation into the business model of subscription explicit content platforms, including financial structures, creator economics, and the banking industry's relationship with the sector.",
+    "category": "Business Model",
+    "url": "https://www.nytimes.com/2021/08/25/business/onlyfans-porn-ban.html"
+  },
+  {
+    "id": 2,
+    "headline": "Children Are Encountering Pornography Earlier Than Ever — and It's Changing How They Think About Sex",
+    "publication": "The Guardian",
+    "date": "2023-05-14",
+    "summary": "Report on falling average age of first exposure to explicit content, platform accessibility without meaningful age gates, and expert commentary on developmental impact.",
+    "category": "Youth Exposure",
+    "url": "https://www.theguardian.com/technology/2023/may/14/children-pornography-earlier-changing-attitudes-sex"
+  },
+  {
+    "id": 3,
+    "headline": "How OnlyFans Became a $1 Billion Business—and Changed the Adult Entertainment Industry",
+    "publication": "Forbes",
+    "date": "2022-09-19",
+    "summary": "Analysis of the revenue model of creator-subscription explicit content platforms, industry growth trajectory, and the economic incentives that drive platform design.",
+    "category": "Business Model",
+    "url": "https://www.forbes.com/sites/abrambrown/2022/09/19/how-onlyfans-became-a-1-billion-business/"
+  },
+  {
+    "id": 4,
+    "headline": "Porn Sites Are More Popular Than Netflix. They're Also a Mess of Abuse and Exploitation",
+    "publication": "The New York Times",
+    "date": "2020-12-04",
+    "summary": "Pulitzer Prize finalist investigation into non-consensual content, child sexual abuse material, and accountability gaps on major explicit content platforms.",
+    "category": "Exploitation & Safety",
+    "url": "https://www.nytimes.com/2020/12/04/opinion/sunday/pornhub-rape-trafficking.html"
+  },
+  {
+    "id": 5,
+    "headline": "Sex Work Platforms Face Growing Scrutiny Over Creator Exploitation",
+    "publication": "Wired",
+    "date": "2023-03-08",
+    "summary": "Reporting on 'management agencies' that take large cuts from creators, coercive contracts, content deletion barriers, and the lack of platform-level protections for people creating explicit content.",
+    "category": "Creator Exploitation",
+    "url": "https://www.wired.com/story/onlyfans-creators-management-agencies/"
+  },
+  {
+    "id": 6,
+    "headline": "Pornography Addiction Is Now a Recognized Mental Health Problem in Many Countries",
+    "publication": "BBC News",
+    "date": "2019-05-25",
+    "summary": "Coverage of the WHO's inclusion of compulsive sexual behavior disorder in ICD-11, discussing criteria, prevalence estimates, and treatment challenges.",
+    "category": "Mental Health",
+    "url": "https://www.bbc.com/news/health-48401760"
+  },
+  {
+    "id": 7,
+    "headline": "Banks Are Cutting Off Adult Content Sites. That Could Leave Creators Stranded",
+    "publication": "The Washington Post",
+    "date": "2022-07-18",
+    "summary": "Examination of the financial infrastructure underlying explicit content platforms, including payment processor withdrawal, banking discrimination, and the effect on the industry's legal gray zones.",
+    "category": "Financial Infrastructure",
+    "url": "https://www.washingtonpost.com/technology/2022/07/18/adult-content-banking/"
+  },
+  {
+    "id": 8,
+    "headline": "The UK Is Trying to Enforce Age Verification for Porn Sites. Other Countries Are Watching.",
+    "publication": "Reuters",
+    "date": "2024-01-15",
+    "summary": "Coverage of legislative efforts to require genuine age verification for adult content platforms, policy debates, and technological limitations of current implementation approaches.",
+    "category": "Youth Exposure",
+    "url": "https://www.reuters.com/technology/uk-age-verification-pornography/"
+  },
+  {
+    "id": 9,
+    "headline": "Inside the Creator Economy's Most Lucrative — and Least Talked About — Segment",
+    "publication": "The Atlantic",
+    "date": "2023-10-22",
+    "summary": "Long-form feature on the scale of the explicit content creator economy, psychological mechanisms driving consumer spending, and the industry's deliberate design choices that maximize engagement.",
+    "category": "Business Model",
+    "url": "https://www.theatlantic.com/technology/archive/2023/10/adult-content-creator-economy/"
+  },
+  {
+    "id": 10,
+    "headline": "Therapists Report Surge in Patients Citing Pornography-Related Relationship Problems",
+    "publication": "NPR",
+    "date": "2022-11-03",
+    "summary": "Survey data and clinician interviews showing significant increase in couples therapy cases where explicit content platform use was a primary presenting concern, particularly post-pandemic.",
+    "category": "Relationship Impact",
+    "url": "https://www.npr.org/2022/11/03/therapists-pornography-relationship-problems/"
+  },
+  {
+    "id": 11,
+    "headline": "FOSTA-SESTA Two Years Later: Did the Law Hurt or Help Sex Trafficking Victims?",
+    "publication": "Politico",
+    "date": "2021-04-11",
+    "summary": "Policy analysis of the 2018 US law targeting online sex trafficking, its mixed outcomes, unintended consequences, and ongoing debates about platform accountability for hosted explicit content.",
+    "category": "Legislation & Policy",
+    "url": "https://www.politico.com/news/2021/04/11/fosta-sesta-sex-trafficking-two-years-later/"
+  },
+  {
+    "id": 12,
+    "headline": "The Hidden Mental Health Crisis Among Explicit Content Consumers",
+    "publication": "Psychology Today",
+    "date": "2023-07-30",
+    "summary": "Clinical analysis of compulsive behavior patterns specific to subscription explicit content platforms, including the role of personalized interaction features in escalating use and dependency.",
+    "category": "Mental Health",
+    "url": "https://www.psychologytoday.com/us/blog/sex-drugs-and-boredom/"
+  }
+]

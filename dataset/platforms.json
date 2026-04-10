@@ -1,0 +1,80 @@
+{
+  "disclaimer": "All figures below are illustrative industry-scale estimates compiled from public reporting and analyst estimates. No specific company is named or targeted. These figures represent the broader explicit content subscription industry as a whole.",
+  "last_updated": "2026-04",
+  "industry_overview": {
+    "estimated_global_revenue_usd": 5000000000,
+    "revenue_label": "~$5 Billion",
+    "revenue_note": "Illustrative estimate based on aggregated public reporting across the subscription explicit content industry as of 2024–2025.",
+    "estimated_registered_users_global": 370000000,
+    "users_label": "370M+",
+    "users_note": "Illustrative industry-wide estimate across all major subscription explicit content platforms.",
+    "us_per_capita_cost_usd": 14.93,
+    "per_capita_note": "Illustrative figure derived by dividing industry revenue estimate (~$5B) by US population (~335M). Not a charge or fee — symbolic figure only.",
+    "estimated_creators_global": 3000000,
+    "creators_note": "Illustrative estimate of individuals creating content across all major subscription explicit content platforms.",
+    "platform_revenue_share": "20–25%",
+    "platform_revenue_note": "Typical platform commission on creator earnings across the industry, based on publicly available terms of service disclosures.",
+    "average_subscription_price_usd": 7.99,
+    "average_subscription_note": "Illustrative average monthly subscription price across the industry; actual prices vary widely.",
+    "industry_growth_rate_yoy": "~15–20% annually (estimated)",
+    "industry_growth_note": "Estimated compound annual growth rate based on analyst reporting; not sourced from any single company."
+  },
+  "key_concerns": [
+    {
+      "concern": "Age Verification",
+      "description": "The majority of platforms rely on self-declaration of age (entering a birthdate) as the sole verification mechanism. Independent audits have found minors accessing content across multiple major platforms.",
+      "severity": "High",
+      "sources": ["UK OFCOM Reports", "NCMEC Annual Reports", "Stanford Internet Observatory"]
+    },
+    {
+      "concern": "Non-Consensual Content",
+      "description": "Multiple investigative reports have documented instances of non-consensual intimate images (NCII) remaining on platforms after removal requests, due to inadequate content moderation and appeals processes.",
+      "severity": "High",
+      "sources": ["NYT Investigation 2020", "StopNCII.org Annual Report", "Cyber Civil Rights Initiative"]
+    },
+    {
+      "concern": "Creator Coercion",
+      "description": "Unregulated third-party 'management agencies' operate within the industry, often taking 40–60% of creator earnings and using contractual clauses that prevent creators from leaving or removing their content.",
+      "severity": "High",
+      "sources": ["Wired Investigation 2023", "creator testimonials", "FTC complaint records"]
+    },
+    {
+      "concern": "Addictive Design",
+      "description": "Platform UX features including tipping mechanics, personalized message notifications, 'exclusive' content locks, and time-limited offers mirror design patterns from gambling applications and have been associated with compulsive use behaviors.",
+      "severity": "Medium-High",
+      "sources": ["Journal of Behavioral Addictions", "Harvard Health Publishing", "clinical case literature"]
+    },
+    {
+      "concern": "Financial Exploitation of Consumers",
+      "description": "Platform monetization structures — including tips, pay-per-view unlocks, custom requests, and subscription bundles — are layered to maximize per-user spending, with no built-in spending caps or warnings.",
+      "severity": "Medium-High",
+      "sources": ["CFPB complaint database", "personal finance forums", "consumer advocacy reporting"]
+    },
+    {
+      "concern": "Mental Health Impact",
+      "description": "A growing body of peer-reviewed research links frequent use of explicit content platforms to depression, anxiety, sexual dysfunction, and impaired ability to form real-world intimate relationships.",
+      "severity": "Medium-High",
+      "sources": ["WHO ICD-11 classification", "Frontiers in Psychology 2018", "Archives of Sexual Behavior"]
+    },
+    {
+      "concern": "Content Permanence",
+      "description": "Content posted on these platforms often persists indefinitely due to scraping, redistribution, and inadequate takedown enforcement, creating permanent digital records that affect creators' futures.",
+      "severity": "High",
+      "sources": ["Revenge Porn Helpline reports", "cyberlaw scholarship", "creator testimonials"]
+    }
+  ],
+  "industry_structure": {
+    "model": "Subscription + microtransaction hybrid",
+    "primary_revenue_streams": [
+      "Monthly subscription fees",
+      "Pay-per-view unlocked content",
+      "Tipping features",
+      "Custom content requests",
+      "Live streaming tips",
+      "Bundle and promotional packages"
+    ],
+    "platform_role": "Platforms act as payment processors, hosting providers, and discovery systems simultaneously — operating in legal gray zones that limit regulatory oversight.",
+    "banking_relationships": "Multiple major payment processors have at various times restricted or withdrawn services from explicit content platforms due to reputational and regulatory risk, creating instability for creators and consumers alike.",
+    "regulatory_environment": "Primarily governed by Section 230 in the US (platform immunity), with evolving regulations in EU (DSA), UK (Online Safety Act), and Australia. Age verification requirements vary significantly by jurisdiction."
+  }
+}

@@ -1,0 +1,8 @@
+# Firebase config — contains API keys, do not commit
+config.js
+
+# Claude Code local settings
+.claude/
+
+# macOS
+.DS_Store

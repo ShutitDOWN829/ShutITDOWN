@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shut It Down — Awareness Campaign</title>
+  <meta name="description" content="A symbolic, non-commercial awareness campaign about the explicit content subscription platform industry. Zero revenue. Zero money collected." />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Shut It Down" />
+  <meta property="og:description" content="A symbolic awareness campaign. No money collected. No company named." />
+  <meta property="og:type" content="website" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <script src="config.js"></script>
+
+  <style>
+    /* ============================================================
+       RESET & BASE
+    ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #080808;
+      --bg2:       #0f0f0f;
+      --bg3:       #141414;
+      --red:       #e83535;
+      --red-dark:  #c02020;
+      --gold:      #f0b429;
+      --green:     #3ddc84;
+      --white:     #f0f0f0;
+      --muted:     #888;
+      --border:    rgba(255,255,255,0.07);
+      --font-head: 'Bebas Neue', sans-serif;
+      --font-body: 'Outfit', sans-serif;
+      --font-serif:'Playfair Display', serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Grain texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    section { padding: 6rem 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+
+    h1, h2, h3 { font-family: var(--font-head); letter-spacing: 0.03em; }
+    h2 { font-size: clamp(2.4rem, 5vw, 3.6rem); color: var(--white); margin-bottom: 1rem; }
+
+    a { color: var(--red); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .tag {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.65rem;
+      border-radius: 3px;
+      margin-bottom: 0.6rem;
+    }
+
+    .disclaimer-box {
+      background: rgba(240,180,41,0.08);
+      border: 1px solid rgba(240,180,41,0.25);
+      border-radius: 8px;
+      padding: 0.75rem 1.1rem;
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-family: var(--font-mono);
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       TICKER BAR
+    ============================================================ */
+    .ticker-bar {
+      background: var(--red);
+      padding: 0.5rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .ticker-track {
+      display: inline-block;
+      animation: ticker 40s linear infinite;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ============================================================
+       NAV
+    ============================================================ */
+    nav {
+      background: rgba(8,8,8,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 34px;
+      z-index: 99;
+    }
+
+    .nav-logo {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      color: var(--red);
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--white); text-decoration: none; }
+
+    .nav-cta {
+      background: var(--red);
+      color: #fff !important;
+      padding: 0.4rem 1rem;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    .nav-cta:hover { background: var(--red-dark); }
+
+    .hamburger { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 6rem 1.5rem;
+    }
+
+    /* Grid background */
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(232,53,53,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232,53,53,0.06) 1px, transparent 1px);
+      background-size: 50px 50px;
+      z-index: 0;
+    }
+
+    /* Radial gradient on grid */
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 50%, transparent 30%, var(--bg) 80%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-headline {
+      font-family: var(--font-head);
+      font-size: clamp(6rem, 20vw, 14rem);
+      line-height: 0.88;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      text-shadow: 0 0 80px rgba(232,53,53,0.3);
+    }
+
+    .hero-headline span { color: var(--red); }
+
+    .hero-sub {
+      margin-top: 2rem;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--muted);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Stats row */
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat .val {
+      font-family: var(--font-mono);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 700;
+      color: var(--green);
+      display: block;
+    }
+
+    .hero-stat .val.red { color: var(--red); }
+    .hero-stat .val.gold { color: var(--gold); }
+
+    .hero-stat .lbl {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-family: var(--font-mono);
+    }
+
+    .hero-disclaimer {
+      margin-top: 2rem;
+      font-size: 0.72rem;
+      color: #555;
+      font-family: var(--font-mono);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      margin-top: 2.5rem;
+      background: var(--red);
+      color: #fff;
+      font-family: var(--font-head);
+      font-size: 1.3rem;
+      letter-spacing: 0.12em;
+      padding: 0.9rem 2.8rem;
+      border-radius: 4px;
+      transition: background 0.2s, transform 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+
+    .hero-cta:hover { background: var(--red-dark); transform: translateY(-2px); text-decoration: none; color: #fff; }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .scroll-arrow {
+      width: 16px;
+      height: 16px;
+      border-right: 2px solid var(--muted);
+      border-bottom: 2px solid var(--muted);
+      transform: rotate(45deg);
+      animation: bounce 1.8s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: rotate(45deg) translateY(0); }
+      50% { transform: rotate(45deg) translateY(5px); }
+    }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    #about { background: var(--bg2); }
+
+    .section-label {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.5rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 2rem;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+
+    .card:hover {
+      border-color: rgba(232,53,53,0.35);
+      transform: translateY(-3px);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .card h3 {
+      font-family: var(--font-head);
+      font-size: 1.4rem;
+      color: var(--white);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.04em;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #aaa;
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       FAITH SECTION
+    ============================================================ */
+    #faith {
+      background: #0a0806;
+      position: relative;
+    }
+
+    #faith::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 40% at 50% 50%, rgba(240,180,41,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .faith-header { text-align: center; margin-bottom: 3rem; }
+
+    .faith-header h2 {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      color: var(--gold);
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .faith-header p {
+      color: #888;
+      font-family: var(--font-serif);
+      font-style: italic;
+      margin-top: 0.5rem;
+    }
+
+    .verses-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .verse-card {
+      background: linear-gradient(135deg, #100d08, #0f0c08);
+      border: 1px solid rgba(240,180,41,0.15);
+      border-radius: 10px;
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .verse-card::before {
+      content: '"';
+      position: absolute;
+      top: -0.5rem;
+      left: 1rem;
+      font-family: var(--font-serif);
+      font-size: 8rem;
+      color: rgba(240,180,41,0.06);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .verse-ref {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      opacity: 0.8;
+    }
+
+    .verse-text {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: #d8c9a8;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .verse-note {
+      font-size: 0.78rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .candle-divider {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 1.5rem;
+      opacity: 0.4;
+    }
+
+    /* ============================================================
+       STORIES — CATEGORY RIBBONS
+    ============================================================ */
+    #stories { background: var(--bg); }
+
+    /* Category ribbon tabs */
+    .category-ribbons {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+      margin: 2rem 0 1.5rem;
+    }
+
+    .ribbon-tab {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      border: 1.5px solid transparent;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: var(--bg3);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .ribbon-tab:hover {
+      color: var(--white);
+    }
+
+    .ribbon-tab.active {
+      color: #fff;
+    }
+
+    .ribbon-tab .ribbon-count {
+      background: rgba(255,255,255,0.12);
+      border-radius: 999px;
+      padding: 0.1rem 0.45rem;
+      font-size: 0.65rem;
+    }
+
+    .ribbon-tab.active .ribbon-count {
+      background: rgba(0,0,0,0.25);
+    }
+
+    /* Stories grid */
+    .stories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .story-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: border-color 0.25s, transform 0.2s;
+    }
+
+    .story-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .story-tag {
+      background: rgba(232,53,53,0.12);
+      color: var(--red);
+      border: 1px solid rgba(232,53,53,0.25);
+    }
+
+    .story-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #ccc;
+      line-height: 1.8;
+      flex: 1;
+    }
+
+    .story-source {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .source-label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+
+    .source-link {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--red);
+      border: 1px solid rgba(232,53,53,0.3);
+      padding: 0.2rem 0.5rem;
+      border-radius: 3px;
+      transition: background 0.2s;
+    }
+
+    .source-link:hover { background: rgba(232,53,53,0.1); text-decoration: none; }
+
+    /* Story submission form */
+    .story-submit {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .story-submit h3 {
+      font-family: var(--font-head);
+      font-size: 1.8rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .story-submit p {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 0.78rem;
+      font-family: var(--font-mono);
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    input, textarea, select {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      padding: 0.7rem 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: rgba(232,53,53,0.5);
+    }
+
+    select option { background: var(--bg3); }
+
+    textarea { resize: vertical; min-height: 120px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.8rem;
+      border-radius: 6px;
+      font-family: var(--font-head);
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary { background: var(--red); color: #fff; }
+    .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+    .btn-outline { background: transparent; border: 1px solid var(--red); color: var(--red); }
+    .btn-outline:hover { background: rgba(232,53,53,0.1); }
+
+    /* ============================================================
+       PLEDGE TRACKER
+    ============================================================ */
+    #pledge {
+      background: linear-gradient(180deg, var(--bg2) 0%, #0c0808 100%);
+    }
+
+    .pledge-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .pledge-inner h2 { margin-bottom: 0.5rem; }
+
+    .pledge-inner > p {
+      color: var(--muted);
+      margin-bottom: 3rem;
+    }
+
+    .pledge-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 2.5rem;
+    }
+
+    .pledge-amount-display {
+      font-family: var(--font-mono);
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 0.25rem;
+    }
+
+    .pledge-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .slider-wrap { margin: 1.5rem 0; }
+
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 100%;
+      height: 6px;
+      background: linear-gradient(to right, var(--green) 0%, var(--green) var(--progress, 0%), #333 var(--progress, 0%), #333 100%);
+      border-radius: 3px;
+      outline: none;
+      border: none;
+      padding: 0;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--green);
+      cursor: pointer;
+      box-shadow: 0 0 12px rgba(61,220,132,0.4);
+      border: none;
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--green);
+      cursor: pointer;
+      border: none;
+    }
+
+    .slider-labels {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    .pledge-counters {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+
+    .pledge-counter {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem;
+    }
+
+    .pledge-counter .val {
+      font-family: var(--font-mono);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+
+    .pledge-counter .lbl {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-top: 0.2rem;
+    }
+
+    /* Progress bar */
+    .progress-wrap {
+      margin: 1.5rem 0;
+    }
+
+    .progress-bar-track {
+      background: #1a1a1a;
+      border-radius: 6px;
+      height: 10px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--red), var(--gold));
+      border-radius: 6px;
+      transition: width 0.5s ease;
+      width: 0%;
+    }
+
+    .progress-labels {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-top: 0.4rem;
+    }
+
+    .people-needed {
+      background: rgba(240,180,41,0.06);
+      border: 1px solid rgba(240,180,41,0.15);
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--gold);
+    }
+
+    .symbolic-disclaimer {
+      background: rgba(61,220,132,0.05);
+      border: 1px solid rgba(61,220,132,0.15);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      margin-top: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--green);
+      line-height: 1.6;
+    }
+
+    .figure-disclaimer {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: #555;
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       COMMENTS
+    ============================================================ */
+    #comments { background: var(--bg2); }
+
+    .comment-form {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .comment-form h3 {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .comments-list { display: flex; flex-direction: column; gap: 1rem; }
+
+    .comment-item {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.2rem 1.5rem;
+    }
+
+    .comment-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .comment-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--red), var(--gold));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .comment-name {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .comment-time {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-left: auto;
+    }
+
+    .comment-body {
+      font-size: 0.9rem;
+      color: #bbb;
+      line-height: 1.7;
+    }
+
+    /* ============================================================
+       DISCLAIMER SECTION
+    ============================================================ */
+    #disclaimer {
+      background: #060606;
+      border-top: 1px solid var(--border);
+    }
+
+    .disclaimer-sections {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .disclaimer-block h3 {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--red);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .disclaimer-block p {
+      font-size: 0.82rem;
+      color: #666;
+      line-height: 1.8;
+    }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: #050505;
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: var(--font-head);
+      font-size: 2.2rem;
+      color: var(--red);
+      margin-bottom: 0.75rem;
+    }
+
+    footer p {
+      font-size: 0.78rem;
+      color: #444;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    footer .zero-revenue {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--green);
+      margin-top: 1rem;
+      letter-spacing: 0.1em;
+    }
+
+    /* ============================================================
+       SCROLL REVEAL
+    ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 768px) {
+      .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; background: rgba(8,8,8,0.98); padding: 1.5rem; border-bottom: 1px solid var(--border); }
+      .nav-links.open { display: flex; }
+      .hamburger { display: flex; }
+      .form-grid { grid-template-columns: 1fr; }
+      .pledge-counters { grid-template-columns: 1fr; }
+      .hero-stats { gap: 1.5rem; }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 4rem 1rem; }
+      .pledge-card { padding: 1.5rem; }
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--bg3);
+      border: 1px solid var(--green);
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--green);
+      z-index: 9998;
+      transform: translateY(100px);
+      opacity: 0;
+      transition: all 0.35s ease;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+<!-- TICKER BAR -->
+<div class="ticker-bar">
+  <div class="ticker-track" id="ticker-text"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SHUT IT DOWN</div>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#faith">Faith</a></li>
+    <li><a href="#stories">Stories</a></li>
+    <li><a href="#pledge">Pledge</a></li>
+    <li><a href="#disclaimer">Legal</a></li>
+    <li><a href="#pledge" class="nav-cta">Take the Pledge</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">A symbolic awareness campaign</div>
+    <h1 class="hero-headline">SHUT<br><span>IT</span><br>DOWN</h1>
+    <p class="hero-sub" id="hero-subtitle"></p>
+
+    <div class="hero-stats">
+      <div class="hero-stat reveal">
+        <span class="val gold" id="stat-revenue">~$5B</span>
+        <span class="lbl">Industry Revenue (Est.)</span>
+      </div>
+      <div class="hero-stat reveal reveal-delay-1">
+        <span class="val red" id="stat-per-capita">$14.93</span>
+        <span class="lbl">Per American (Illus.)</span>
+      </div>
+      <div class="hero-stat reveal reveal-delay-2">
+        <span class="val" id="stat-users">370M+</span>
+        <span class="lbl">Estimated Users</span>
+      </div>
+      <div class="hero-stat reveal reveal-delay-3">
+        <span class="val gold" id="stat-pledgers">0</span>
+        <span class="lbl">Symbolic Pledges</span>
+      </div>
+    </div>
+
+    <p class="hero-disclaimer">
+      Figures shown are illustrative and represent industry-scale estimates, not any specific company.<br>
+      This campaign is 100% symbolic. No money is collected at any point.
+    </p>
+
+    <a href="#pledge" class="hero-cta">Take the Symbolic Pledge</a>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section id="about">
+  <div class="container">
+    <p class="section-label">What We're Talking About</p>
+    <h2>How Did We Get Here?</h2>
+    <p style="color: var(--muted); max-width: 600px;">
+      Six things the industry hopes you never think about too carefully.
+    </p>
+
+    <div class="cards-grid">
+      <div class="card reveal">
+        <div class="card-icon">📈</div>
+        <h3>How It Started</h3>
+        <p>Subscription explicit content platforms launched as "creator economy" tools framed around empowerment and independence. They quietly became a multi-billion dollar industry with hundreds of millions of users — with almost no public accountability or regulatory framework.</p>
+      </div>
+      <div class="card reveal reveal-delay-1">
+        <div class="card-icon">💰</div>
+        <h3>The Business Model</h3>
+        <p>Platforms collect 20–25% of all creator earnings, then layer subscriptions, tips, pay-per-view unlocks, custom requests, and bundle promotions — all engineered to maximize per-user spending. These monetization mechanics mirror casino floor design, not creator tools.</p>
+      </div>
+      <div class="card reveal reveal-delay-2">
+        <div class="card-icon">🧠</div>
+        <h3>Mental Health Crisis</h3>
+        <p>Peer-reviewed research links compulsive use of explicit content platforms to depression, anxiety, sexual dysfunction, and impaired ability to connect with real partners. The WHO added compulsive sexual behavior disorder to ICD-11. Therapists report surging caseloads tied directly to these platforms.</p>
+      </div>
+      <div class="card reveal reveal-delay-3">
+        <div class="card-icon">💔</div>
+        <h3>Relationship Damage</h3>
+        <p>Multiple studies show consistent negative associations between explicit platform use and relationship satisfaction, trust, and commitment. Couples therapists across the country report it as one of the top presenting issues they see. The industry profits from damaged relationships.</p>
+      </div>
+      <div class="card reveal reveal-delay-4">
+        <div class="card-icon">🚸</div>
+        <h3>Youth Exposure</h3>
+        <p>The most common age verification mechanism on these platforms is a birthdate dropdown field. Independent researchers and child safety organizations have repeatedly documented minors accessing content with no friction. A dropdown is not a gate. It never was.</p>
+      </div>
+      <div class="card reveal reveal-delay-5">
+        <div class="card-icon">🔕</div>
+        <h3>Why People Don't Know</h3>
+        <p>The industry operates in a legal gray zone protected by broad platform liability shields. Mainstream media treats it as a third-rail topic. Advertisers don't ask. Banks look away. And users are too ashamed to talk about it — which is exactly the environment the industry depends on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FAITH
+============================================================ -->
+<section id="faith">
+  <div class="container">
+    <div class="faith-header reveal">
+      <p class="section-label" style="color: var(--gold);">What Scripture Says</p>
+      <h2>What Faith Says</h2>
+      <p>Ancient wisdom for a modern wound</p>
+    </div>
+
+    <div class="candle-divider reveal">&#x1F56F;&#xFE0F;</div>
+
+    <div class="verses-grid">
+      <div class="verse-card reveal">
+        <div class="verse-ref">1 Corinthians 6:18–20</div>
+        <p class="verse-text">
+          "Flee from sexual immorality. Every other sin a person commits is outside the body, but the sexually immoral person sins against his own body. Or do you not know that your body is a temple of the Holy Spirit within you, whom you have from God? You are not your own, for you were bought with a price. So glorify God in your body."
+        </p>
+        <p class="verse-note">The body is not a commodity. It is not a product. It is not a platform. Every dollar extracted from human sexuality in this industry flows against this truth.</p>
+      </div>
+
+      <div class="verse-card reveal reveal-delay-1">
+        <div class="verse-ref">Matthew 5:28</div>
+        <p class="verse-text">
+          "But I say to you that everyone who looks at a woman with lustful intent has already committed adultery with her in his heart."
+        </p>
+        <p class="verse-note">Long before a platform existed to monetize it, the internal cost of lustful consumption was named. The industry has built a billion-dollar infrastructure around what Scripture identifies as a heart wound.</p>
+      </div>
+
+      <div class="verse-card reveal reveal-delay-2">
+        <div class="verse-ref">Job 31:1</div>
+        <p class="verse-text">
+          "I have made a covenant with my eyes; how then could I gaze at a virgin?"
+        </p>
+        <p class="verse-note">Job speaks of a deliberate, pre-committed guard over the gaze. In an era when these platforms put algorithmically-optimized content in front of every pair of eyes, this covenant language is more relevant than ever.</p>
+      </div>
+
+      <div class="verse-card reveal reveal-delay-3">
+        <div class="verse-ref">Proverbs 6:25–26</div>
+        <p class="verse-text">
+          "Do not desire her beauty in your heart, and do not let her capture you with her eyelashes, for the price of a prostitute is only a loaf of bread, but a married woman hunts down a precious life."
+        </p>
+        <p class="verse-note">Scripture named the financial exploitation angle thousands of years ago. These platforms have simply industrialized it — extracting not just money, but marriages, families, and futures.</p>
+      </div>
+
+      <div class="verse-card reveal reveal-delay-4">
+        <div class="verse-ref">Romans 13:13–14</div>
+        <p class="verse-text">
+          "Let us behave properly as in the day, not in carousing and drunkenness, not in sexual promiscuity and sensuality, not in strife and jealousy. But put on the Lord Jesus Christ, and make no provision for the flesh in regard to its lusts."
+        </p>
+        <p class="verse-note">Make no provision. The design of these platforms is the opposite — every UX decision is a provision for continued consumption. This campaign is about making a different kind of design choice.</p>
+      </div>
+    </div>
+
+    <div class="candle-divider" style="margin-top: 2rem; opacity: 0.3;">&#x2015;&#x2015;&#x2015;&#x1F56F;&#xFE0F;&#x2015;&#x2015;&#x2015;</div>
+  </div>
+</section>
+
+<!-- ============================================================
+     STORIES
+============================================================ -->
+<section id="stories">
+  <div class="container">
+    <p class="section-label">Real People. Real Impact.</p>
+    <h2>Their Stories</h2>
+    <p style="color: var(--muted); max-width: 620px; margin-bottom: 0.5rem;">
+      Anonymous testimonials from public forums. All quotes are from publicly available Reddit threads about
+      the explicit content subscription platform industry — not any single company.
+    </p>
+    <div class="disclaimer-box" style="margin-bottom: 1rem; max-width: 620px;">
+      These testimonials reference the explicit content subscription platform industry broadly.
+      No specific platform is named or implied.
+    </div>
+
+    <!-- Category ribbon tabs -->
+    <div class="category-ribbons" id="category-ribbons">
+      <!-- Populated by JS -->
+    </div>
+
+    <div class="stories-grid" id="stories-grid">
+      <!-- Populated by JS -->
+    </div>
+
+    <div style="text-align:center; margin-top: 2rem;">
+      <button class="btn btn-outline" id="load-more-btn" onclick="loadMoreStoriesInTab()">Load More Stories</button>
+    </div>
+
+    <!-- Submission form -->
+    <div class="story-submit reveal">
+      <h3>Share Your Story</h3>
+      <p>Submissions are anonymous. Your words may help someone else feel less alone. No identifying information is stored or published without explicit consent.</p>
+      <form id="story-form" onsubmit="submitStory(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="story-category">Category</label>
+            <select id="story-category">
+              <option value="">Select a category...</option>
+              <option>Relationship Betrayal</option>
+              <option>Youth Exposure</option>
+              <option>Mental Health Spiral</option>
+              <option>Financial Exploitation</option>
+              <option>Creator Exploitation</option>
+              <option>Addiction Escalation</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="story-handle">Anonymous Handle (optional)</label>
+            <input type="text" id="story-handle" placeholder="e.g. Anonymous, Survivor_27..." maxlength="30" />
+          </div>
+          <div class="form-group full">
+            <label for="story-text">Your Story</label>
+            <textarea id="story-text" placeholder="Share your experience anonymously. Be as specific or general as you are comfortable with." rows="5" maxlength="1000"></textarea>
+          </div>
+          <div class="form-group full">
+            <div class="disclaimer-box">
+              By submitting, you confirm this is your own genuine experience and consent to anonymous publication.
+              No identifying information will be stored. This site is non-commercial.
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Submit Anonymously</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PLEDGE TRACKER
+============================================================ -->
+<section id="pledge">
+  <div class="container">
+    <div class="pledge-inner">
+      <p class="section-label" style="text-align:center;">Symbolic Pledge Tracker</p>
+      <h2>Add Your Voice</h2>
+      <p>This is a symbolic awareness action. Absolutely no money is collected at any point. Ever.</p>
+
+      <div class="pledge-card">
+        <div class="pledge-amount-display" id="pledge-display">$15</div>
+        <div class="pledge-label">Your Symbolic Pledge Amount</div>
+
+        <div class="slider-wrap">
+          <input
+            type="range"
+            id="pledge-slider"
+            min="15"
+            max="100"
+            value="15"
+            step="1"
+            oninput="updateSlider(this.value)"
+          />
+          <div class="slider-labels">
+            <span>$15</span>
+            <span>$100 max</span>
+          </div>
+        </div>
+
+        <div class="pledge-counters">
+          <div class="pledge-counter">
+            <div class="val" id="total-pledgers">0</div>
+            <div class="lbl">Symbolic Pledgers</div>
+          </div>
+          <div class="pledge-counter">
+            <div class="val" id="symbolic-total">$0</div>
+            <div class="lbl">Symbolic Total</div>
+          </div>
+        </div>
+
+        <!-- Progress bar -->
+        <div class="progress-wrap">
+          <div class="progress-bar-track">
+            <div class="progress-bar-fill" id="progress-fill"></div>
+          </div>
+          <div class="progress-labels">
+            <span id="progress-pct">0%</span>
+            <span id="goal-label">Goal: ~$5B (Illustrative)</span>
+          </div>
+        </div>
+
+        <div class="people-needed" id="people-needed">
+          At $15/pledge: ~333,333,333 people needed to reach the symbolic goal.
+        </div>
+
+        <button class="btn btn-primary" style="width:100%; justify-content:center; font-size:1.3rem;" onclick="submitPledge()">
+          &#x270A; Take the Symbolic Pledge
+        </button>
+
+        <div class="symbolic-disclaimer">
+          NO MONEY COLLECTED EVER. 100% SYMBOLIC.<br>
+          This pledge represents symbolic awareness, not a financial transaction of any kind.
+          No payment processor. No bank account. No revenue.
+        </div>
+
+        <p class="figure-disclaimer">
+          Figures are illustrative industry-scale estimates, not any specific company.
+          Goal amount (~$5B) is an illustrative industry revenue estimate used for symbolic framing only.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     COMMENTS
+============================================================ -->
+<section id="comments">
+  <div class="container">
+    <p class="section-label">Community</p>
+    <h2>Join the Conversation</h2>
+
+    <div class="comment-form reveal">
+      <h3>Leave a Comment</h3>
+      <form id="comment-form" onsubmit="submitComment(event)">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="comment-name">Name or Handle</label>
+            <input type="text" id="comment-name" placeholder="Anonymous" maxlength="40" />
+          </div>
+          <div class="form-group">
+            <label for="comment-location">Location (optional)</label>
+            <input type="text" id="comment-location" placeholder="e.g. Texas, USA" maxlength="40" />
+          </div>
+          <div class="form-group full">
+            <label for="comment-text">Comment</label>
+            <textarea id="comment-text" placeholder="Share your thoughts on this campaign or the industry..." rows="4" maxlength="600"></textarea>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary" style="margin-top: 1rem;">Post Comment</button>
+      </form>
+    </div>
+
+    <div class="comments-list" id="comments-list">
+      <!-- Seeded comments loaded by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     DISCLAIMER & TERMS
+============================================================ -->
+<section id="disclaimer">
+  <div class="container">
+    <p class="section-label">Legal & Transparency</p>
+    <h2>Disclaimer & Terms</h2>
+
+    <div class="disclaimer-sections">
+      <div class="disclaimer-block reveal">
+        <h3>Zero Revenue Statement</h3>
+        <p>This site generates zero revenue. It is not a fundraiser. No money is collected, processed, solicited, or received at any point — from any source, for any purpose. There is no donation button, no payment gateway, no bank account, no Venmo, no Stripe, no PayPal, and no cryptocurrency address associated with this project.</p>
+      </div>
+      <div class="disclaimer-block reveal reveal-delay-1">
+        <h3>Private Individual Creator</h3>
+        <p>This website is created and operated by a private individual acting in a personal capacity. It is not a business, LLC, nonprofit, corporation, political action committee, or any other legal entity. It is not connected to any employer, institution, or organization. It will never generate earnings of any kind.</p>
+      </div>
+      <div class="disclaimer-block reveal reveal-delay-2">
+        <h3>No Company Named or Targeted</h3>
+        <p>This campaign does not name, target, defame, or disparage any specific company, platform, individual creator, or legal entity. All references are to the explicit content subscription platform industry as a whole. Any similarity to specific company names or branding is unintentional.</p>
+      </div>
+      <div class="disclaimer-block reveal reveal-delay-3">
+        <h3>Illustrative Figures</h3>
+        <p>All numerical figures presented on this site — including but not limited to revenue estimates (~$5 billion), per-capita figures ($14.93), user estimates (370M+), and pledge amounts — are illustrative industry-scale estimates compiled from public reporting and analyst estimates. They are not derived from any single company's financial disclosures and should not be attributed to any specific platform.</p>
+      </div>
+      <div class="disclaimer-block reveal reveal-delay-4">
+        <h3>Symbolic Pledges</h3>
+        <p>The "pledge" mechanism on this site is purely symbolic. It is an awareness tool — a way for individuals to express symbolic solidarity with the campaign's message. It does not create any legal obligation, financial commitment, contractual agreement, or promise of any kind. No money moves. No account is created. No data is sold.</p>
+      </div>
+      <div class="disclaimer-block reveal reveal-delay-5">
+        <h3>Free Speech & Public Commentary</h3>
+        <p>This site constitutes protected expression under the First Amendment of the United States Constitution and equivalent free expression protections in other jurisdictions. Commentary on an industry's practices, business models, and documented harms is a longstanding form of protected public discourse. This site contains no adult content, no pornographic material, no harassment, and no defamatory statements.</p>
+      </div>
+      <div class="disclaimer-block reveal">
+        <h3>No Adult Content</h3>
+        <p>This site contains zero adult, explicit, pornographic, or sexually graphic content. It discusses the explicit content industry in an educational, critical, and awareness-focused context only. All testimonials are text-based descriptions of personal experiences.</p>
+      </div>
+      <div class="disclaimer-block reveal reveal-delay-1">
+        <h3>Data & Privacy</h3>
+        <p>In its default deployment, this site uses browser localStorage only — no server, no database, no analytics, no tracking cookies. No personal data is transmitted. Comments and pledges exist only in the local browser session unless Firebase is configured by the deployer. No user data is sold, shared, or monetized.</p>
+      </div>
+    </div>
+
+    <div class="disclaimer-box" style="margin-top: 3rem; max-width: 100%;">
+      STUDENT & PRIVATE INDIVIDUAL CREATOR NOTICE: This site generates zero revenue, is not a business activity,
+      is not connected to any bank account or payment system, and will never generate earnings of any kind.
+      Created by a private individual exercising free expression rights. Open source under MIT license.
+      Anyone may deploy and adapt this project for non-commercial awareness purposes.
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">SHUT IT DOWN</div>
+  <p id="footer-note"></p>
+  <p class="zero-revenue">
+    &#x2022; ZERO REVENUE &nbsp;&#x2022;&nbsp; ZERO MONEY COLLECTED &nbsp;&#x2022;&nbsp; 100% SYMBOLIC &nbsp;&#x2022;&nbsp; FREE SPEECH &nbsp;&#x2022;&nbsp; MIT OPEN SOURCE
+  </p>
+  <p style="margin-top: 1rem; font-size: 0.7rem; color: #333;">
+    Deployed on GitHub Pages / Netlify &nbsp;|&nbsp; Open Source &nbsp;|&nbsp; No tracking &nbsp;|&nbsp; No ads
+  </p>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
+<script>
+// ============================================================
+// CONFIG INITIALIZATION
+// ============================================================
+document.title = CONFIG.SITE_TITLE + " — Awareness Campaign";
+document.getElementById("hero-subtitle").textContent = CONFIG.SITE_TAGLINE;
+document.getElementById("stat-revenue").textContent = CONFIG.INDUSTRY_REVENUE_LABEL;
+document.getElementById("stat-per-capita").textContent = "$" + CONFIG.PER_CAPITA_ESTIMATE.toFixed(2);
+document.getElementById("stat-users").textContent = CONFIG.ESTIMATED_USERS;
+document.getElementById("goal-label").textContent = "Goal: ~$5B (Illustrative)";
+document.getElementById("footer-note").textContent = CONFIG.FOOTER_NOTE;
+
+// ============================================================
+// TICKER BAR
+// ============================================================
+const tickerPhrases = [
+  "NO MONEY COLLECTED EVER",
+  "100% SYMBOLIC AWARENESS CAMPAIGN",
+  "NO SPECIFIC COMPANY NAMED",
+  "ALL FIGURES ARE ILLUSTRATIVE ESTIMATES",
+  "ZERO REVENUE · ZERO ADS · ZERO TRACKING",
+  "FREE SPEECH · OPEN SOURCE · MIT LICENSE",
+  "~$5B INDUSTRY (ILLUS. ESTIMATE)",
+  "370M+ USERS (ILLUS. ESTIMATE)",
+  "SHUT IT DOWN",
+];
+
+const ticker = document.getElementById("ticker-text");
+const full = (tickerPhrases.join("   ✦   ") + "   ✦   ").repeat(3);
+ticker.textContent = full;
+
+// ============================================================
+// NAV
+// ============================================================
+function toggleNav() {
+  document.getElementById("nav-links").classList.toggle("open");
+}
+
+// ============================================================
+// LOCAL STORAGE PLEDGE STATE
+// ============================================================
+const STORE_PLEDGERS  = "sid_pledgers";
+const STORE_TOTAL     = "sid_total";
+const STORE_PLEDGED   = "sid_pledged";
+const STORE_COMMENTS  = "sid_comments";
+const STORE_STORIES   = "sid_user_stories";
+
+function getState() {
+  return {
+    pledgers : parseInt(localStorage.getItem(STORE_PLEDGERS) || "0"),
+    total    : parseFloat(localStorage.getItem(STORE_TOTAL)   || "0"),
+    pledged  : localStorage.getItem(STORE_PLEDGED) === "true",
+    comments : JSON.parse(localStorage.getItem(STORE_COMMENTS) || "[]"),
+  };
+}
+
+function saveState(state) {
+  localStorage.setItem(STORE_PLEDGERS, state.pledgers);
+  localStorage.setItem(STORE_TOTAL,    state.total);
+  localStorage.setItem(STORE_PLEDGED,  state.pledged);
+  localStorage.setItem(STORE_COMMENTS, JSON.stringify(state.comments));
+}
+
+// ============================================================
+// FIREBASE INTEGRATION (optional — requires CONFIG.FIREBASE_CONFIG)
+// ============================================================
+let fbDB = null; // Firebase database reference, null when not configured
+
+function initFirebase() {
+  if (!CONFIG.FIREBASE_CONFIG) return;
+
+  // Dynamically load Firebase SDK (compat v9 CDN)
+  const sdkBase = "https://www.gstatic.com/firebasejs/9.22.2/";
+  function loadScript(src) {
+    return new Promise((resolve, reject) => {
+      const s = document.createElement("script");
+      s.src = src;
+      s.onload = resolve;
+      s.onerror = reject;
+      document.head.appendChild(s);
+    });
+  }
+
+  loadScript(sdkBase + "firebase-app-compat.js")
+    .then(() => loadScript(sdkBase + "firebase-database-compat.js"))
+    .then(() => {
+      const app = firebase.initializeApp(CONFIG.FIREBASE_CONFIG);
+      fbDB = firebase.database(app);
+
+      // Sync pledge counters from Firebase
+      fbDB.ref("/pledgers").on("value", snap => {
+        const val = snap.val();
+        if (val !== null) {
+          localStorage.setItem(STORE_PLEDGERS, val.count || 0);
+          localStorage.setItem(STORE_TOTAL,    val.total || 0);
+          updatePledgeUI();
+        }
+      });
+
+      // Sync comments from Firebase
+      fbDB.ref("/comments").on("value", snap => {
+        const val = snap.val();
+        if (val) {
+          const comments = Object.values(val).sort((a, b) => b.ts - a.ts);
+          localStorage.setItem(STORE_COMMENTS, JSON.stringify(comments));
+          renderComments();
+        }
+      });
+    })
+    .catch(err => console.warn("Firebase failed to load:", err));
+}
+
+function fbPushPledge(amount) {
+  if (!fbDB) return;
+  fbDB.ref("/pledgers").transaction(current => {
+    if (!current) return { count: 1, total: amount };
+    return { count: (current.count || 0) + 1, total: (current.total || 0) + amount };
+  });
+}
+
+function fbPushComment(comment) {
+  if (!fbDB) return;
+  fbDB.ref("/comments").push(comment);
+}
+
+function fbPushUserStory(story) {
+  if (!fbDB) return;
+  fbDB.ref("/user_stories").push(story);
+}
+
+// ============================================================
+// PLEDGE TRACKER
+// ============================================================
+let currentPledgeAmount = CONFIG.PLEDGE_MIN;
+
+function fmt(n) {
+  if (n >= 1e9) return "$" + (n / 1e9).toFixed(2) + "B";
+  if (n >= 1e6) return "$" + (n / 1e6).toFixed(2) + "M";
+  if (n >= 1e3) return "$" + (n / 1e3).toFixed(1) + "K";
+  return "$" + n.toLocaleString();
+}
+
+function fmtCount(n) {
+  if (n >= 1e9) return (n / 1e9).toFixed(2) + "B";
+  if (n >= 1e6) return (n / 1e6).toFixed(2) + "M";
+  if (n >= 1e3) return (n / 1e3).toFixed(1) + "K";
+  return n.toLocaleString();
+}
+
+function updatePledgeUI() {
+  const s = getState();
+  document.getElementById("total-pledgers").textContent = fmtCount(s.pledgers);
+  document.getElementById("symbolic-total").textContent = fmt(s.total);
+  document.getElementById("stat-pledgers").textContent = fmtCount(s.pledgers);
+
+  const pct = Math.min((s.total / CONFIG.GOAL_AMOUNT) * 100, 100);
+  document.getElementById("progress-fill").style.width = pct + "%";
+  document.getElementById("progress-pct").textContent = pct.toFixed(6) + "%";
+
+  updatePeopleNeeded();
+}
+
+function updateSlider(val) {
+  val = parseInt(val);
+  currentPledgeAmount = Math.min(Math.max(val, CONFIG.PLEDGE_MIN), CONFIG.PLEDGE_MAX);
+  document.getElementById("pledge-display").textContent = "$" + currentPledgeAmount;
+
+  // Update slider gradient
+  const slider = document.getElementById("pledge-slider");
+  const pct = ((currentPledgeAmount - CONFIG.PLEDGE_MIN) / (CONFIG.PLEDGE_MAX - CONFIG.PLEDGE_MIN)) * 100;
+  slider.style.setProperty("--progress", pct + "%");
+
+  updatePeopleNeeded();
+}
+
+function updatePeopleNeeded() {
+  const needed = Math.ceil(CONFIG.GOAL_AMOUNT / currentPledgeAmount);
+  document.getElementById("people-needed").textContent =
+    `At $${currentPledgeAmount}/pledge: ~${needed.toLocaleString()} people needed to reach the symbolic goal.`;
+}
+
+function submitPledge() {
+  const s = getState();
+  if (s.pledged) {
+    showToast("You've already taken the pledge in this session! Thank you.");
+    return;
+  }
+  s.pledgers += 1;
+  s.total    += currentPledgeAmount;
+  s.pledged  = true;
+  saveState(s);
+  fbPushPledge(currentPledgeAmount);
+  updatePledgeUI();
+  showToast("✊ Pledge recorded symbolically. No money collected. Thank you.");
+}
+
+// ============================================================
+// COMMENTS
+// ============================================================
+const SEED_COMMENTS = [
+  { name: "Marcus T.", location: "Ohio, USA", text: "This is the kind of awareness campaign that's been missing. Well done.", ts: Date.now() - 3600000 * 24 * 3 },
+  { name: "Priya K.", location: "California", text: "The faith section hit harder than I expected. Job 31:1 — that verse is a commitment I wish more people knew about.", ts: Date.now() - 3600000 * 24 * 2 },
+  { name: "Anonymous", location: "", text: "I lost my marriage to this. Nobody talked about it publicly until now. Thank you for building this.", ts: Date.now() - 3600000 * 36 },
+  { name: "David R.", location: "Texas", text: "The business model breakdown should be mandatory reading. Slot machine UX in a 'creator tool' wrapper.", ts: Date.now() - 3600000 * 12 },
+];
+
+function renderComments() {
+  const s = getState();
+  const all = [...SEED_COMMENTS, ...s.comments].sort((a, b) => b.ts - a.ts);
+  const list = document.getElementById("comments-list");
+  list.innerHTML = "";
+
+  all.forEach(c => {
+    const initials = c.name.split(" ").map(w => w[0]).join("").toUpperCase().slice(0, 2) || "AN";
+    const timeAgo = getTimeAgo(c.ts);
+    list.innerHTML += `
+      <div class="comment-item">
+        <div class="comment-header">
+          <div class="comment-avatar">${initials}</div>
+          <span class="comment-name">${escHtml(c.name)}${c.location ? ' <span style="color:var(--muted);font-size:0.78rem;font-weight:400">— ' + escHtml(c.location) + '</span>' : ''}</span>
+          <span class="comment-time">${timeAgo}</span>
+        </div>
+        <p class="comment-body">${escHtml(c.text)}</p>
+      </div>`;
+  });
+}
+
+function submitComment(e) {
+  e.preventDefault();
+  const name = document.getElementById("comment-name").value.trim() || "Anonymous";
+  const loc  = document.getElementById("comment-location").value.trim();
+  const text = document.getElementById("comment-text").value.trim();
+
+  if (!text) { showToast("Please write something before posting."); return; }
+  if (text.length < 5) { showToast("Comment is too short."); return; }
+
+  const comment = { name, location: loc, text, ts: Date.now() };
+  const s = getState();
+  s.comments.push(comment);
+  saveState(s);
+  fbPushComment(comment);
+  renderComments();
+  document.getElementById("comment-form").reset();
+  showToast("Comment posted!");
+}
+
+function getTimeAgo(ts) {
+  const diff = Date.now() - ts;
+  const m = Math.floor(diff / 60000);
+  if (m < 1)  return "just now";
+  if (m < 60) return m + "m ago";
+  const h = Math.floor(m / 60);
+  if (h < 24) return h + "h ago";
+  return Math.floor(h / 24) + "d ago";
+}
+
+function escHtml(s) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+// ============================================================
+// STORIES — CATEGORY RIBBONS
+// ============================================================
+let storiesData = [];
+let activeCategory = null;   // null = "All"
+let tabShownCounts = {};     // { category: shownCount }
+const STORIES_PER_PAGE = 5;
+
+const CATEGORY_COLORS = {
+  "Relationship Betrayal": "#e83535",
+  "Youth Exposure":        "#f0b429",
+  "Mental Health Spiral":  "#a855f7",
+  "Financial Exploitation":"#f97316",
+  "Creator Exploitation":  "#06b6d4",
+  "Addiction Escalation":  "#ec4899",
+};
+
+const CATEGORY_ORDER = [
+  "Relationship Betrayal",
+  "Youth Exposure",
+  "Mental Health Spiral",
+  "Financial Exploitation",
+  "Creator Exploitation",
+  "Addiction Escalation",
+];
+
+async function loadStories() {
+  try {
+    const res = await fetch("dataset/stories.json");
+    storiesData = await res.json();
+    // Default to first category
+    activeCategory = CATEGORY_ORDER[0];
+    buildRibbons();
+    renderStoriesForTab();
+  } catch (e) {
+    console.warn("Could not load stories.json:", e);
+  }
+}
+
+function buildRibbons() {
+  const wrap = document.getElementById("category-ribbons");
+  wrap.innerHTML = "";
+
+  CATEGORY_ORDER.forEach(cat => {
+    const count = storiesData.filter(s => s.category === cat).length;
+    const col = CATEGORY_COLORS[cat] || "#e83535";
+    const isActive = cat === activeCategory;
+    const btn = document.createElement("button");
+    btn.className = "ribbon-tab" + (isActive ? " active" : "");
+    btn.style.borderColor = isActive ? col : "transparent";
+    btn.style.background  = isActive ? col + "22" : "";
+    btn.style.color       = isActive ? col : "";
+    btn.innerHTML = `${escHtml(cat)} <span class="ribbon-count">${count}</span>`;
+    btn.onclick = () => switchTab(cat);
+    wrap.appendChild(btn);
+  });
+}
+
+function switchTab(cat) {
+  activeCategory = cat;
+  buildRibbons();
+  renderStoriesForTab();
+}
+
+function getTabStories() {
+  return storiesData.filter(s => s.category === activeCategory);
+}
+
+function renderStoriesForTab() {
+  if (!tabShownCounts[activeCategory]) tabShownCounts[activeCategory] = STORIES_PER_PAGE;
+
+  const all   = getTabStories();
+  const shown = tabShownCounts[activeCategory];
+  const slice = all.slice(0, shown);
+  const col   = CATEGORY_COLORS[activeCategory] || "#e83535";
+
+  const grid = document.getElementById("stories-grid");
+  grid.innerHTML = "";
+
+  slice.forEach(s => {
+    grid.innerHTML += `
+      <div class="story-card" style="border-color:${col}22">
+        <span class="tag story-tag" style="background:${col}18;color:${col};border-color:${col}40">${escHtml(s.category)}</span>
+        <p class="story-quote">"${escHtml(s.quote)}"</p>
+        <div class="story-source">
+          <span class="source-label">${escHtml(s.source_subreddit)} &bull; ${escHtml(s.date_collected)}</span>
+          <a class="source-link" href="${escHtml(s.source_url)}" target="_blank" rel="noopener noreferrer" style="color:${col};border-color:${col}50">View Source ↗</a>
+        </div>
+      </div>`;
+  });
+
+  const btn = document.getElementById("load-more-btn");
+  const remaining = all.length - slice.length;
+  if (remaining > 0) {
+    btn.style.display = "inline-flex";
+    btn.textContent   = `Load ${Math.min(remaining, STORIES_PER_PAGE)} More Stories (${remaining} left)`;
+    btn.disabled      = false;
+  } else {
+    btn.style.display = "none";
+  }
+}
+
+function loadMoreStoriesInTab() {
+  tabShownCounts[activeCategory] = (tabShownCounts[activeCategory] || STORIES_PER_PAGE) + STORIES_PER_PAGE;
+  renderStoriesForTab();
+}
+
+function submitStory(e) {
+  e.preventDefault();
+  const cat  = document.getElementById("story-category").value;
+  const text = document.getElementById("story-text").value.trim();
+  if (!cat)  { showToast("Please select a category."); return; }
+  if (!text) { showToast("Please write your story."); return; }
+
+  const story = { category: cat, text, ts: Date.now() };
+
+  // Save to localStorage
+  const existing = JSON.parse(localStorage.getItem(STORE_STORIES) || "[]");
+  existing.push(story);
+  localStorage.setItem(STORE_STORIES, JSON.stringify(existing));
+
+  // Push to Firebase if configured
+  fbPushUserStory(story);
+
+  const msg = fbDB
+    ? "Thank you. Your story has been submitted anonymously."
+    : "Thank you. Your story has been recorded. (Deploy with Firebase to share across visitors.)";
+  showToast(msg);
+  document.getElementById("story-form").reset();
+}
+
+// ============================================================
+// TOAST
+// ============================================================
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), 3500);
+}
+
+// ============================================================
+// SCROLL REVEAL
+// ============================================================
+function initReveal() {
+  const els = document.querySelectorAll(".reveal");
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add("visible");
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(el => obs.observe(el));
+}
+
+// ============================================================
+// INIT
+// ============================================================
+document.addEventListener("DOMContentLoaded", () => {
+  initFirebase();
+  updatePledgeUI();
+  updateSlider(CONFIG.PLEDGE_MIN);
+  loadStories();
+  renderComments();
+  initReveal();
+});
+</script>
+
+</body>
+</html>
